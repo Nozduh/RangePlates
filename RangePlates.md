@@ -40,16 +40,4 @@ For melee classes or Hunter, try /rpspell Throw or /rpspell Arcane Shot.
 Uninstall
 Just delete the RangePlates folder from your AddOns directory.
 
-Enjoy RangePlates!
-
-
-
-
-
-
-
-
-GPT-4.1 Codeanywhere API
-^⏎ @codebase
-
-⏎ Enter
+Enjoy
