@@ -19,34 +19,28 @@ local function getSavedSetting(key, fallback)
     return fallback
 end
 
-local function enumerate_nameplates()
-    local plates = {}
-    local base = WorldFrame
-    for i = 1, base:GetNumChildren() do
-        local child = select(i, base:GetChildren())
-        if child and child:IsShown() and child:GetName() == nil then
-            local overlay, name = child:GetRegions()
-            if name and name.GetText and name:GetText() then
-                table.insert(plates, {frame = child, nameRegion = name, mobname = name:GetText()})
+local function UpdateTargetNameplateColor()
+    local refSpell = getSavedSetting("refSpell", "Attack")
+    local colors = getSavedSetting("colors", defaultColors)
+    -- First, reset all nameplate text colors to unknown
+    for i = 1, 40 do
+        local plate = _G["NamePlateDriverFramePoolFrameNamePlateUnitFrameTemplate"..i]
+        if plate and plate:IsVisible() then
+            for _, region in ipairs({plate:GetRegions()}) do
+                if region.SetTextColor then
+                    region:SetTextColor(unpack(colors.unknown))
+                end
             end
         end
     end
-    return plates
-end
 
-local function UpdateTargetNameplateColor()
-    local plates = enumerate_nameplates()
-    local refSpell = getSavedSetting("refSpell", "Attack")
-    local colors = getSavedSetting("colors", defaultColors)
-    for _, info in ipairs(plates) do
-        if info.mobname and UnitExists("target") and UnitName("target") == info.mobname then
-            if IsSpellInRange(refSpell, "target") == 1 then
-                info.nameRegion:SetTextColor(unpack(colors.inRange))
-            else
-                info.nameRegion:SetTextColor(unpack(colors.outRange))
-            end
+    -- Now, try to find the target's nameplate
+    local plate, nameRegion = find_target_nameplate()
+    if plate and nameRegion then
+        if IsSpellInRange(refSpell, "target") == 1 then
+            nameRegion:SetTextColor(unpack(colors.inRange))
         else
-            info.nameRegion:SetTextColor(unpack(colors.unknown))
+            nameRegion:SetTextColor(unpack(colors.outRange))
         end
     end
 end
