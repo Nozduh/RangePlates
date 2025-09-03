@@ -1,0 +1,55 @@
+RangePlates
+RangePlates is a simple WoW addon for Project Ascension (or any 3.3.5 server) that colors nameplates based on whether your target is in range for a chosen spell.
+It’s lightweight and customizable using simple commands.
+
+Installation
+Download or create RangePlates:
+Place the RangePlates folder in your World of Warcraft\Interface\AddOns directory.
+
+Enable the addon:
+On the WoW character selection screen, click the AddOns button and make sure RangePlates is enabled.
+
+Usage
+How does it work?
+Whenever you target a unit with a nameplate shown, its name will turn green if your chosen reference spell is in range, or red if not.
+You can customize which spell and what colors are used, using in-game chat commands.
+
+Commands
+/rpspell [spell name]
+Set which spell is used to check range.
+Example: /rpspell Fireball
+
+/rpcolor [in|out] [color name]
+Set the nameplate color (by name) for in-range and out-of-range targets.
+Examples:
+/rpcolor in light blue
+/rpcolor out magenta
+
+Available color names: red, green, blue, yellow, orange, magenta, pink, white, black, gray, cyan, teal,
+light blue, light green, light red, light yellow, light purple, light pink, light gray,
+dark blue, dark green, dark red, dark purple, dark orange, dark gray
+
+/rpreset
+Reset RangePlates settings to defaults (this will reload your UI).
+
+Tips
+The spell you choose must be on your action bars for range detection to work.
+If you see no color change, double-check your spell name and spelling, and try /rpspell again.
+Some classes by default use a common offensive spell (e.g. Fireball for Mage, Lightning Bolt for Shaman).
+For melee classes or Hunter, try /rpspell Throw or /rpspell Arcane Shot.
+Uninstall
+Just delete the RangePlates folder from your AddOns directory.
+
+Enjoy RangePlates!
+
+
+
+
+
+
+
+
+GPT-4.1 Codeanywhere API
+^⏎ @codebase
+
+⏎ Enter

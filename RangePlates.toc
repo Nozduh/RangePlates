@@ -1,0 +1,7 @@
+## Interface: 30300
+## Title: RangePlates
+## Notes: Nameplate Range Indicator
+## Version: 1.0
+## SavedVariables: RP_Settings
+
+RangePlates.lua
